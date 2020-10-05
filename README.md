@@ -10,7 +10,7 @@ usage: "Nothing rlly",
 ownerOnly: false, 
 cooldown: 5000,
 botPermission: [],
-authorPermission: []
+authorPermission: [],
 aliases: [],
 description: "Nothing",
 }
