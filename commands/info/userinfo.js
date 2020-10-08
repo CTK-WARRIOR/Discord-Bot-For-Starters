@@ -16,7 +16,7 @@ module.exports = {
     } else {
 
 
-      if (!isNaN(args[0])) return message.channel.send(":x: Invalid ID of the user.")
+   
 
 
       user = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(err => { return message.channel.send(":x: Unable to find this Person") })
