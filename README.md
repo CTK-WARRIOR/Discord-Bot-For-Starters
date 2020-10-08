@@ -1,7 +1,8 @@
 # Discord-Bot-For-Starters
 This is the tutorial bot :)
 
-#HANDLER SYLE
+## HANDLER SYLE
+
 ```js
 
 module.exports = {
