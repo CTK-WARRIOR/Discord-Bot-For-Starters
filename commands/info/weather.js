@@ -2,9 +2,6 @@ const weather = require('weather-js');
 const discord = require('discord.js')
 
 
-
-
-//TIME TO END STREAM
 module.exports = {
   name: "weather",
   description: "Get the weather of anywhere",

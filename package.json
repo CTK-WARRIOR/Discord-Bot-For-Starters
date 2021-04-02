@@ -10,7 +10,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "anime-scraper": "^3.1.1",
     "ascii-table": "^0.0.9",
     "canvas-senpai": "^0.1.6",
     "common-tags": "^1.8.0",
