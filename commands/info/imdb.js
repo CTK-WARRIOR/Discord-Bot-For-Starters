@@ -23,7 +23,7 @@ name: "imdb",
     let movie = await fetch(`https://www.omdbapi.com/?apikey=5e36f0db&t=${args.join("+")}`)
     movie = await movie.json()
 
-    if(!movie.Responce) return msg.edit({
+    if(!movie.Response) return msg.edit({
         embed: {
           "description": "Unable to find Something about `" + args.join(" ") + "`",
           "color": "RED"
