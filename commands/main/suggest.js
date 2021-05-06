@@ -35,7 +35,7 @@ module.exports = {
     
 
     
-    message.channel.send("Sended Your Suggestion to " + channel).catch(err => {})
+    message.channel.send("Your suggestion is submitted, so get some coffee and chill out").catch(err => {})
     
   }
 }

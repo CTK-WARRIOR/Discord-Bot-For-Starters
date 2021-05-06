@@ -11,7 +11,7 @@ module.exports = {
     
   
     //ARGUMENT
-    if(!args.length) {
+     if(!args.length) {
       return message.channel.send("Please give status message")
     }
     

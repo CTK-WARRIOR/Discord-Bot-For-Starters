@@ -1,4 +1,6 @@
-const { MessageEmbed } = require("discord.js")
+const {
+  MessageEmbed
+} = require("discord.js")
 const moment = require("moment")
 
 module.exports = {
@@ -15,11 +17,9 @@ module.exports = {
       user = message.member;
     } else {
 
-
-   
-
-
-      user = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(err => { return message.channel.send(":x: Unable to find this Person") })
+      user = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(err => {
+        return message.channel.send(":x: Unable to find this Person")
+      })
     }
 
     if (!user) {
@@ -46,7 +46,9 @@ module.exports = {
     })
 
     let embed = new MessageEmbed()
-      .setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
+      .setThumbnail(user.user.displayAvatarURL({
+        dynamic: true
+      }))
 
     //ACTIVITY
     let array = []
@@ -71,30 +73,32 @@ module.exports = {
       }
     }
 
-      //EMBED COLOR BASED ON member
-      embed.setColor(user.displayHexColor === "#000000" ? "#ffffff" : user.displayHexColor)
+    //EMBED COLOR BASED ON member
+    embed.setColor(user.displayHexColor === "#000000" ? "#ffffff" : user.displayHexColor)
 
-      //OTHER STUFF 
-      embed.setAuthor(user.user.tag, user.user.displayAvatarURL({ dynamic: true }))
+    //OTHER STUFF 
+    embed.setAuthor(user.user.tag, user.user.displayAvatarURL({
+      dynamic: true
+    }))
 
-      //CHECK IF USER HAVE NICKNAME
-      if (user.nickname !== null) embed.addField("Nickname", user.nickname)
-      embed.addField("Joined At", moment(user.joinedAt).format("LLLL"))
-        .addField("Account Created At", moment(user.user.createdAt).format("LLLL"))
-        .addField("Common Information", `ID: \`${user.user.id}\`\nDiscriminator: ${user.user.discriminator}\nBot: ${user.user.bot}\nDeleted User: ${user.deleted}`)
-        .addField("Badges", newbadges.join(", ").toLowerCase() || "None")
-        .setFooter(user.user.presence.status, stat[user.user.presence.status])
-
-
-
-      return message.channel.send(embed).catch(err => {
-        return message.channel.send("Error : " + err)
-      })
+    //CHECK IF USER HAVE NICKNAME
+    if (user.nickname !== null) embed.addField("Nickname", user.nickname)
+    embed.addField("Joined At", moment(user.joinedAt).format("LLLL"))
+      .addField("Account Created At", moment(user.user.createdAt).format("LLLL"))
+      .addField("Common Information", `ID: \`${user.user.id}\`\nDiscriminator: ${user.user.discriminator}\nBot: ${user.user.bot}\nDeleted User: ${user.deleted}`)
+      .addField("Badges", newbadges.join(", ").toLowerCase() || "None")
+      .setFooter(user.user.presence.status, stat[user.user.presence.status])
 
 
 
-    }
+    return message.channel.send(embed).catch(err => {
+      return message.channel.send("Error : " + err)
+    })
 
 
 
   }
+
+
+
+}

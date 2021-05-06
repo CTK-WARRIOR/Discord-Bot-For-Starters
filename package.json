@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "ascii-table": "^0.0.9",
-    "canvas-senpai": "^0.1.6",
+    "canvas-senpai": "2.0.3",
     "common-tags": "^1.8.0",
     "discord.js": "^12.1.1",
     "moment": "^2.27.0",

@@ -1,5 +1,9 @@
+/**
+ * Required modules
+ */
+
 const discord = require("discord.js");
-const fetch = require("node-fetch")
+const axios = require("axios");
 
 module.exports = {
 name: "imdb",
@@ -19,16 +23,15 @@ name: "imdb",
     }})
 
     
-    try {
-    let movie = await fetch(`https://www.omdbapi.com/?apikey=5e36f0db&t=${args.join("+")}`)
-    movie = await movie.json()
-
-    if(!movie.Response) return msg.edit({
+    let movie = await axios(`https://www.omdbapi.com/?apikey=5e36f0db&t=${args.join("+")}`).catch(err => {})
+    if(!movie || !movie.data || movie.data.Response === 'False') return msg.edit({
         embed: {
           "description": "Unable to find Something about `" + args.join(" ") + "`",
           "color": "RED"
         }
       })
+
+    movie = movie.data;
     
     let embed = new discord.MessageEmbed()
     .setTitle(movie.Title)
@@ -42,16 +45,7 @@ name: "imdb",
     
     
     msg.edit(embed)
-    } catch(err) {
-      msg.edit({
-        embed: {
-          "description": "Something went Wrong :/",
-          "color": "RED"
-        }
-      })
     }
     
     
   }
-
-}
