@@ -40,7 +40,9 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
   if (command.botPermission) {
     const Permissions = command.botPermission.filter(x => !message.guild.me.hasPermission(x)).map(x => "`" + x + "`")
     if (Permissions.length) return message.channel.send(`I need ${Permissions.join(", ")} permission(s) to execute the command!`)
-  } else if (command.authorPermission) {
+  } 
+  
+  if (command.authorPermission) {
     const Permissions = command.authorPermission.filter(x => !message.member.hasPermission(x)).map(x => "`" + x + "`")
     if (Permissions.length) return message.channel.send(`You need ${Permissions.join(", ")} permission(s) to execute this command!`)
   }
