@@ -12,23 +12,15 @@ name: "imdb",
   usage: "imdb <name>",
   run: async (client, message, args, color) => {
     
-    if(!args.length) {
-      return message.channel.send("Please give the name of movie or series")
-    }
-
-
-    let msg = await message.channel.send({embed: {
-      "description": "Getting the information...",
-      "color": "YELLOW"
-    }})
-
-    
+    if(!args.length) return message.channel.send({ content: "Please give the name of movie or series" })
+    let msg = await message.channel.send({ embeds: [{ "description": "Getting the information...", "color": "YELLOW" }] })
     let movie = await axios(`https://www.omdbapi.com/?apikey=5e36f0db&t=${args.join("+")}`).catch(err => {})
+
     if(!movie || !movie.data || movie.data.Response === 'False') return msg.edit({
-        embed: {
+        embeds: [{
           "description": "Unable to find Something about `" + args.join(" ") + "`",
           "color": "RED"
-        }
+        }]
       })
 
     movie = movie.data;
@@ -44,8 +36,6 @@ name: "imdb",
     .addField("Type", movie.Type, true);
     
     
-    msg.edit(embed)
-    }
-    
-    
-  }
+    msg.edit({ embeds: [embed] })
+  }    
+}

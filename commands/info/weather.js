@@ -9,51 +9,9 @@ module.exports = {
   usage: "weathet <>",
   run: (client, message, args) => {
 
-
-    if (!args.length) {
-      return message.channel.send("Please give the weather location")
-    }
-
-
-  /**
-   * SOCIAL DISTANICING yk
-   * 
-   * Stay Safe 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   * 
-   */
-
-
-
-
-
-
-
-
-
-
-
-
+    if (!args.length) return message.channel.send("Please give the weather location")
     weather.find({ search: args.join(" "), degreeType: 'C' }, function(err, result) {
       try {
-
         let embed = new discord.MessageEmbed()
           .setTitle(`Weather - ${result[0].location.name}`)
           .setColor("#ff2050")
@@ -65,12 +23,10 @@ module.exports = {
           .addField("Observation Time", result[0].current.observationtime, true)
           .addField("Wind Display", result[0].current.winddisplay, true)
           .setThumbnail(result[0].current.imageUrl);
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] })
       } catch (err) {
         return message.channel.send("Unable To Get the data of Given location")
       }
     });
-    //LETS CHECK OUT PKG
-
   }
 }

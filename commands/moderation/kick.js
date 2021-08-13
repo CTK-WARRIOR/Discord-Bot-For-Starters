@@ -5,16 +5,10 @@ module.exports = {
   category: "moderation",
   description: "Kick anyone with one shot xD",
   usage: "kick <@user> <raeson>",
+  botPermission: ["KICK_MEMBERS"],
+  authorPermission: ["KICK_MEMBERS"],
   run: (client, message, args) => {
-    
-    if(!message.member.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(`**${message.author.username}**, You do not have enough permission to use this command`)
-    }
-    
-    if(!message.guild.me.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(`**${message.author.username}**, I do not have enough permission to use this command`)
-    }
-    
+  
     let target = message.mentions.members.first();
     
     if(!target) {
@@ -35,11 +29,8 @@ module.exports = {
     .setColor("#ff2050")
     .setFooter(`Banned by ${message.author.username}`);
     
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
     
-    target.kick(args[1]);
-    
-    
-    
+    target.kick({reason: args[1]});
   }
 }

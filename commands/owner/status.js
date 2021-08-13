@@ -8,17 +8,9 @@ module.exports = {
   category: "owner",
   ownerOnly: true,
   run: async (client, message, args) => {
-    
-  
-    //ARGUMENT
-     if(!args.length) {
-      return message.channel.send("Please give status message")
-    }
-    
- db.set(`status`, args.join(" "))
- client.user.setActivity(args.join(" ")); 
- message.channel.send("Updated the bot status")
-
-    
+     if(!args.length) return message.channel.send("Please give status message")
+     db.set(`status`, args.join(" "))
+     client.user.setActivity(args.join(" ")); 
+     message.channel.send("Updated the bot status")
   }
 }

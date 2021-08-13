@@ -8,7 +8,7 @@ module.exports = {
   run: async (client, message, args) => {
 
     let data = await Random.getMeme()
-    message.channel.send(data)
+    message.channel.send({embeds: [data.embed]})
 
   }
 }

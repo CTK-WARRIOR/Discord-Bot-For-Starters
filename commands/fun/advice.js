@@ -11,7 +11,7 @@ module.exports = {
   run: async (client, message, args) => {
 
     let data = await Random.getAdvice()
-    message.channel.send(data)
+    message.channel.send({ embeds: [data.embed] })
 
   }
 }

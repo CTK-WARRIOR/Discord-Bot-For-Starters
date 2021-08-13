@@ -17,11 +17,11 @@ module.exports = {
         const user = message.mentions.users.first() || message.author;
 
         if (user.id === client.user.id) { //IF BOT
-            return message.channel.send("😉 | I am on level 100")
+            return message.channel.send({ content: "😉 | I am on level 100"})
         }
 
         if (user.bot) {
-            return message.channel.send("Bot do not have levels")
+            return message.channel.send({ content: "Bot do not have levels"})
         }
 
         let xp = db.get(`xp_${user.id}_${message.guild.id}`) || 0;
@@ -53,16 +53,13 @@ module.exports = {
 
         })
 
-
-
         const attachment = new discord.MessageAttachment(
             data,
             "welcome-image.png"
         );
 
-        message.channel.send(
-            ``,
-            attachment
-        );
+        message.channel.send({
+            files: [ attachment ]
+        });
     }
 }

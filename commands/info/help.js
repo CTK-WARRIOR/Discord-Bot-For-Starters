@@ -11,7 +11,7 @@ module.exports = {
       const command = await client.commands.get(args[0]);
 
       if (!command) {
-        return message.reply("There is no command in the bot with name **" + args[0] + "**.");
+        return message.reply({ content: "There is no command in the bot with name **" + args[0] + "**."});
       }
 
       let embed = new MessageEmbed()
@@ -25,7 +25,7 @@ module.exports = {
       if(command.botPermission && command.botPermission.length) embed.addField("Bot Permissions", command.botPermission.map(x => "`" + x +"`").join(", "), true)
       if(command.authorPermission && command.authorPermission.length) embed.addField("Author Permissions", command.authorPermission.map(x => "`" + x +"`").join(", "), true)
 
-      return message.channel.send(embed);
+      return message.channel.send({ embeds: [embed] });
     } else {
       const commands = await client.commands;
 
@@ -34,38 +34,18 @@ module.exports = {
         .setColor("GREEN")
         .setFooter(client.user.username, client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL());
-
-      let com = {};
-      for (let comm of commands.array()) {
-        let category = comm.category || "Unknown";
-        let name = comm.name;
-
-        if (!com[category]) {
-          com[category] = [];
-        }
-        com[category].push(name);
+      
+      //help command
+      let cmds = {}
+      for(let item of [...commands]) {
+        cmds[item[1].category] ? cmds[item[1].category].push(item[0]) : cmds[item[1].category] = [item[0]]
       }
 
-      for (const [key, value] of Object.entries(com)) {
-        let category = key;
-
-        let desc = "`" + value.join("`, `") + "`";
-
-        emx.addField(`${category.toUpperCase()}[${value.length}]`, desc);
+      for(let key of Object.keys(cmds)) {
+        emx.addField(key.toUpperCase(), cmds[key].join(", "))
       }
 
-      let database = db.get(`cmd_${message.guild.id}`)
-
-      if (database && database.length) {
-        let array = []
-        database.forEach(m => {
-          array.push("`" + m.name + "`")
-        })
-
-        emx.addField("Custom Commands", array.join(", "))
-      }
-
-      return message.channel.send(emx);
+      return message.channel.send({ embeds: [emx] });
     }
   }
 };

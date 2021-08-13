@@ -9,7 +9,7 @@ module.exports.run = async (client, message) => {
   addexp(message); //Add XP to the user profile
 
 /* LINK AND SWEAR WORDS CHECKER */
-if(!message.member.hasPermission("ADMINISTRATOR")) {
+if(!message.member.permissions.has("ADMINISTRATOR")) {
   if(is_url(message.content)) {
     return message.channel.send("You are not allowed to send links here.")
   } else if(is_swear(message.content)) {
@@ -38,12 +38,12 @@ if(!message.member.hasPermission("ADMINISTRATOR")) {
 
    /* P E R M I S S I O N S */
   if (command.botPermission) {
-    const Permissions = command.botPermission.filter(x => !message.guild.me.hasPermission(x)).map(x => "`" + x + "`")
+    const Permissions = command.botPermission.filter(x => !message.guild.me.permissions.has(x)).map(x => "`" + x + "`")
     if (Permissions.length) return message.channel.send(`I need ${Permissions.join(", ")} permission(s) to execute the command!`)
   } 
   
   if (command.authorPermission) {
-    const Permissions = command.authorPermission.filter(x => !message.member.hasPermission(x)).map(x => "`" + x + "`")
+    const Permissions = command.authorPermission.filter(x => !message.member.permissions.has(x)).map(x => "`" + x + "`")
     if (Permissions.length) return message.channel.send(`You need ${Permissions.join(", ")} permission(s) to execute this command!`)
   }
 

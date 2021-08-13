@@ -29,7 +29,7 @@ module.exports = {
       let jsonData = await fetch(`https://disease.sh/v3/covid-19/countries/${args.join(" ")}`)
       jsonData = await jsonData.json()
 
-      if(!jsonData.country) return message.reply("I am unable to get the **" + args[0] + "** details.")
+      if(!jsonData.country) return message.reply({ content: "I am unable to get the **" + args[0] + "** details." })
 
       embed.setTitle(`${jsonData.country.toUpperCase()}`)
            .setColor("GREEN")
@@ -43,9 +43,8 @@ module.exports = {
            .addField("Active Cases", jsonData.active.toLocaleString(), true);
     }
 
-    return message.channel.send(embed).catch(err => {
-      return message.reply("Something went wrong, please try again later.")
-    }) //send something lol
-
+    return message.channel.send({ embeds: [embed]}).catch(err => {
+      return message.reply({ content: "Something went wrong, please try again later."})
+    }) 
   }
 }

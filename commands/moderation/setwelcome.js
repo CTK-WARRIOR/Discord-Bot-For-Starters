@@ -6,16 +6,13 @@ module.exports = {
   category: "moderation",
   usage: "setwelcome <#channel>",
   description: "Set the welcome channel",
+  authorPermission: ["ADMINISTRATOR"],
   run: (client, message, args) => {
     
     let channel = message.mentions.channels.first()
-    
-    if(!channel) {
-      return message.channel.send("Please Mention the channel first")
-    }
+    if(!channel) return message.channel.send("Please Mention the channel first")
     
     db.set(`welchannel_${message.guild.id}`, channel.id)
-    
     message.channel.send(`Welcome Channel is seted as ${channel}`)
   }
 }
