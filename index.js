@@ -1,16 +1,12 @@
-const { token } = require("./config.json");
-const { Intents, Client, Collection } = require("discord.js"); 
-const client = new Client({
-  disableEveryone: true ,
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_PRESENCES]
-});
+const { Client, Intents, Collection } = require("discord.js"),
+{ token, prefix, color, ownerId } = require("./settings.json"),
+client = new Client( { intents: [ Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES ] })
 
-client.commands = new Collection();
+client.prefix_commands = new Collection();
+client.slash_commands = new Collection();
 client.aliases = new Collection();
+client.settings = { prefix, color, ownerId }
 
-["command", "events"].forEach(handler => {
-  require(`./handlers/${handler}`)(client);
-});
+for(let handler of  ["slash_command", "prefix_command", "event"]) require(`./handlers/${handler}`)(client);
 
-
-client.login(token);
+client.login(token)
