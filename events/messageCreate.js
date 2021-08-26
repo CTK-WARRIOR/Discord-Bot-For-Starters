@@ -5,7 +5,7 @@ module.exports = {
         const cmd = args.shift().toLowerCase();
 
         const command = client.prefix_commands.get(cmd)
-        if (!command) command = client.commands.get(client.aliases.get(cmd));
+        if (!command) command = client.prefix_commands.get(client.aliases.get(cmd));
         if(!command) return;
 
         if (command.botPermissions) {
