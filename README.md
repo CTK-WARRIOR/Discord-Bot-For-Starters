@@ -1,5 +1,5 @@
 # Discord-Bot-For-Starters
-This is the tutorial bot :)
+[This is the tutorial bot](https://www.youtube.com/c/DBDANDMORE/videos)
 
 ## HANDLER SYLE
 
