@@ -4,7 +4,7 @@ module.exports = {
         const args = message.content.slice(client.settings.prefix.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();
 
-        const command = client.prefix_commands.get(cmd)
+        let command = client.prefix_commands.get(cmd)
         if (!command) command = client.prefix_commands.get(client.aliases.get(cmd));
         if(!command) return;
 
