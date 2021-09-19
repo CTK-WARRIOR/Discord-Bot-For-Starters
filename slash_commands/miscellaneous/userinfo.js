@@ -8,7 +8,7 @@ module.exports = {
     .addUserOption(option => option.setName("member").setDescription("The memeber whose details you want.")),
 	run: async (client, interaction) => {
         const member = interaction.options.getMember("member") || interaction.member
-        const activities = member.presence.activities
+        const activities = member.presence?.activities || []
 
         const focusActivity = activities.find(x => x.assets)
         const embed = new MessageEmbed()
