@@ -22,7 +22,7 @@
     "got": "^11.8.2",
     "ibl-autopost": "^1.0.7",
     "mongoose": "^5.13.13",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.6",
     "node-superfetch": "^0.2.3",
     "request-promise-native": "^1.0.9",
     "simple-fortnite-api": "^0.1.9",
