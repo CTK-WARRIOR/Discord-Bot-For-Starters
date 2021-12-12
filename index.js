@@ -9,10 +9,6 @@ const client = new Client({
     }
 });
 
-//lava
-const lavalink = require('discord.js-lava');
-const lavacordManager = new lavalink.Manager(client);
-
 client.prefix_commands = new Collection();
 client.slash_commands = new Collection();
 client.aliases = new Collection();
