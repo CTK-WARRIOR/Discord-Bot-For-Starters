@@ -4,14 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/builders": "^0.8.2",
+    "@iamtraction/google-translate": "^1.1.2",
     "ascii-table": "^0.0.9",
-    "discord.js": "^13.1.0"
+    "common-tags": "^1.8.2",
+    "discord.js": "^13.3.1",
+    "discord.js-akinator": "^3.3.1",
+    "discord.js-lava": "^0.0.9",
+    "fero-ms": "^2.0.7",
+    "got": "^11.8.2",
+    "ibl-autopost": "^1.0.7",
+    "mongoose": "^5.12.7",
+    "node-fetch": "^2.6.1",
+    "node-superfetch": "^0.2.3",
+    "request-promise-native": "^1.0.9",
+    "simple-fortnite-api": "^0.1.9",
+    "simply-djs": "^2.2.2",
+    "superagent": "^6.1.0",
+    "weather-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

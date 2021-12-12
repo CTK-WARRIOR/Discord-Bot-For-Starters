@@ -1,5 +1,15 @@
+const { Client, Message } = require('discord.js');
+const config = require('../settings.json');
+
 module.exports = {
-    run: (client, message) => {
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @returns 
+     */
+    run: async (client, message) => {
+        if (message.content === `<@!${client.user.id}>`) message.channel.send({content: `My prefix is \`${config.prefix}\``})
         if(message.author.bot || !message.guild || !message.content.startsWith(client.settings.prefix)) return;
         const args = message.content.slice(client.settings.prefix.length).trim().split(/ +/g);
         const cmd = args.shift().toLowerCase();

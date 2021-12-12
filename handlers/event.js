@@ -1,5 +1,7 @@
 const { readdirSync } = require("fs"),
 ascii = require("ascii-table");
+const mongoose = require('mongoose');
+const { mongooseConnectionString } = require('../settings.json')
 
 let table = new ascii("Events");
 table.setHeading("Events", "Load status");
@@ -26,5 +28,14 @@ module.exports = (client) => {
     }
   }
 
-   console.log(table.toString());
+  console.log(table.toString());
+
+  if(!mongooseConnectionString) return;
+
+  mongoose.connect(mongooseConnectionString, {
+    useCreateIndex: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false
+  }).then(() => console.log('MongoDB Connection Successful.'));
 }
