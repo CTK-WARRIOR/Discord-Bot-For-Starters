@@ -21,7 +21,7 @@
     "fero-ms": "^2.0.7",
     "got": "^11.8.2",
     "ibl-autopost": "^1.0.7",
-    "mongoose": "^5.12.7",
+    "mongoose": "^5.13.13",
     "node-fetch": "^2.6.1",
     "node-superfetch": "^0.2.3",
     "request-promise-native": "^1.0.9",
