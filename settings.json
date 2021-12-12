@@ -1,8 +1,0 @@
-{
-    "token": "ODc4MjU3MjY5MDAxODM4NTky.YR-i0g.-KEi0bKcRkPJcJgOSfWR8sO8S10",
-    "prefix": ">>",
-    "ownerID": "414075055023063040",
-    "bot_invite": "https://discord.com/api/oauth2/authorize?client_id=588780580276011049&permissions=8&scope=bot%20applications.commands",
-    "support_server_invite": "https://discord.gg/5Gp3ySz",
-    "mongooseConnectionString": "mongodb+srv://DevMirza:2fASGjIrsZdQqsTp@cluster0-aevor.gcp.mongodb.net/pingpongbot"
-}
