@@ -19,7 +19,7 @@
     "discord.js-akinator": "^3.3.1",
     "discord.js-lava": "^0.0.9",
     "fero-ms": "^2.0.7",
-    "got": "^11.8.2",
+    "got": "^11.8.3",
     "ibl-autopost": "^1.0.7",
     "mongoose": "^5.13.13",
     "node-fetch": "^2.6.6",
