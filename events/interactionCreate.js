@@ -9,6 +9,9 @@ module.exports = {
      * @returns 
      */
     run: async (client, interaction) => {
+        // Ticket System
+        simply.clickBtn(interaction);
+        
         if (!interaction.isCommand()) return;
         await interaction.deferReply().catch(err => {})
 
@@ -22,8 +25,5 @@ module.exports = {
             console.log(err)
             return interaction.followUp(`Something went wrong while executing the command.`)
         }
-
-        // Ticket System
-        simply.clickBtn(interaction);
     }
 }
