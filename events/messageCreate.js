@@ -1,5 +1,6 @@
 const { Client, Message } = require('discord.js');
 const config = require('../settings.json');
+const simply = require('simply-djs');
 
 module.exports = {
     /**
@@ -9,6 +10,9 @@ module.exports = {
      * @returns 
      */
     run: async (client, message) => {
+        // Ticket System
+        simply.clickBtn(message);
+        
         if (message.content === `<@!${client.user.id}>`) message.channel.send({content: `My prefix is \`${config.prefix}\``})
         if(message.author.bot || !message.guild || !message.content.startsWith(client.settings.prefix)) return;
         const args = message.content.slice(client.settings.prefix.length).trim().split(/ +/g);
