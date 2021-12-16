@@ -26,7 +26,7 @@
     "node-superfetch": "^0.2.3",
     "request-promise-native": "^1.0.9",
     "simple-fortnite-api": "^0.1.9",
-    "simply-djs": "^2.2.2",
+    "simply-djs": "^2.5.0",
     "superagent": "^6.1.0",
     "weather-js": "^2.0.0"
   },

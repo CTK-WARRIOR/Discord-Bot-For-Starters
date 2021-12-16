@@ -6,7 +6,12 @@ const client = new Client({
         properties: {
             "$browser": "Discord Android"
         }
-    }
+    },
+    partials: [
+      'CHANNEL',
+      'MESSAGE',
+      'REACTION'
+    ]
 });
 
 client.prefix_commands = new Collection();
