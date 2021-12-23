@@ -15,6 +15,10 @@ module.exports = {
      * @param {CommandInteraction} interaction
     */
     run: async (client, interaction) => {
+        //permission check
+        if (!interaction.member.permissions.has('MANAGE_SERVER')) return interaction.followUp({ content: 'You do not have enough permissions to use this command.', ephemeral: true });
+        if (!interaction.guild.me.permissions.has('MANAGE_SERVER')) return interaction.followUp({ content: 'I do not have enough permissions to use this command.', ephemeral: true });
+        
         const user = interaction.options.getUser('user');
         const time = interaction.options.getString('time');
         const reason = interaction.options.getString('reason');
