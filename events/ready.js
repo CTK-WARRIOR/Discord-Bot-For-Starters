@@ -28,6 +28,7 @@ module.exports = {
             });
         }, 10000)
 
-        console.log(`[ ${client.user?.username} ] : Connected to Discord with ${client.ws?.ping} ping!`)
+        console.log(`[ ${client.user?.username} ] : Connected to Discord with ${client.ws?.ping} ping!`);
+        require('../dashboard/index')(client)
     }
 }

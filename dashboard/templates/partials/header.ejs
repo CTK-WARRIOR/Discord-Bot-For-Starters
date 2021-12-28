@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/bootstrap.min.js">
+    <title><&= title &></title>
+</head>
+<body>
+    <ul class="navbar-nav">
+        <% if (user) { %>
+            <li class="navbar-item">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Logged in as <%= user.username %>#<%= user.discriminator %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                    <li><a href="/dashboard" class="dropdown.item">Dashboard</a></li>
+                    <li><a href="#" class="dropdown-menu">Option</a></li>
+                    <li><a href="#" class="dropdown-menu">Options</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a href="/logout" class="dropdown-menu">Logout</a></li>
+                </ul>
+            </li>
+        <% } else { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>

@@ -1,7 +1,9 @@
-const { Client, Collection, MessageEmbed } = require("discord.js");
+const { Client, Collection, MessageEmbed, Intents } = require("discord.js");
 const  { token, prefix, color, ownerId } = require("./settings.json");
 const client = new Client({
-    intents: 32767,
+    intents: [
+        Intents.FLAGS.GUILDS
+    ],
     ws: {
         properties: {
             "$browser": "Discord Android"

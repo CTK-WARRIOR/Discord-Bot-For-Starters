@@ -1,0 +1,12 @@
+{
+    "website": {
+        "support": "https://discord.gg/pingpong",
+        "domain": "http://localhost:8080"
+    },
+    "config": {
+        "port": 8080,
+        "callback": "http://localhost:8080/callback",
+        "client_id": "878257269001838592",
+        "client_secret": "EeSld2q_QwMmcHo6XzuNXtvN2LHuTDIA"
+    }
+}
