@@ -2,7 +2,8 @@ const { Client, Collection, MessageEmbed, Intents } = require("discord.js");
 const  { token, prefix, color, ownerId } = require("./settings.json");
 const client = new Client({
     intents: [
-        Intents.FLAGS.GUILDS
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES
     ],
     ws: {
         properties: {
