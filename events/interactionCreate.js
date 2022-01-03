@@ -17,6 +17,9 @@ module.exports = {
         
         // Suggest System
         simply.suggestBtn(interaction, db);
+
+        // Click Button
+        simply.clickBtn(interaction);
         
         if (!interaction.isCommand()) return;
         await interaction.deferReply().catch(err => {})

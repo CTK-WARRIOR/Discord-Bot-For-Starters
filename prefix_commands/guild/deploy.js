@@ -1,7 +1,14 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, Message, Client } = require('discord.js')
 
 module.exports = {
+    name: 'deploy',
     description: "Deploy the slash commands in your guild.",
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Message} message 
+     * @returns 
+     */
     run: async (client, message) => {
         let error = new MessageEmbed()
         .setDescription('<:error:896718126991966269> Sorry but this command can only be performed by the server owner.')
