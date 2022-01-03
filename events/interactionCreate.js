@@ -1,5 +1,8 @@
 const { Client, CommandInteraction } = require('discord.js');
 const simply = require('simply-djs');
+const { mongooseConnectionString } = require('../settings.json');
+const { Database } = require('quickmongo');
+const db = new Database(`${mongooseConnectionString}`);
 
 module.exports = {
     /**
@@ -11,6 +14,9 @@ module.exports = {
     run: async (client, interaction) => {
         // Ticket System
         simply.clickBtn(interaction);
+        
+        // Suggest System
+        simply.suggestBtn(interaction, db);
         
         if (!interaction.isCommand()) return;
         await interaction.deferReply().catch(err => {})
