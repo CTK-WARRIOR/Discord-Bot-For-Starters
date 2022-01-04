@@ -1,6 +1,6 @@
 //require @discordjs/builders
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Client, CommandInteraction } = require('discord.js');
+const { Client, CommandInteraction, MessageEmbed } = require('discord.js');
 const ms = require('ms');
 
 module.exports = {
@@ -26,8 +26,13 @@ module.exports = {
 
         const timeInMs = ms(time);
         if(!timeInMs) {
-            return interaction.followUp('Invalid time provided.');
+            let embed = new MessageEmbed()
+            .setColor('YELLOW')
+            .setTitle('<:error:896718126991966269> Invalid Time Provided')
+            .setDescription('Please enter a valid time. example: 1m, 1h, 1d');
+            return interaction.followUp({ embeds: embed, ephemeral: true });
         }
+        
         member.timeout(timeInMs, reason);
         interaction.followUp(`${user.tag} has been timed out for ${time}! (${reason})`);
     }

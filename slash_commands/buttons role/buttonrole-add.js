@@ -4,36 +4,36 @@ const simply = require('simply-djs');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("button-add")
-    .setDescription("Add a button to the role menu")
+    .setName("buttonrole-add")
+    .setDescription("Add a button role to the button role panel.")
     .addChannelOption((option) =>
       option
         .setName("channel")
-        .setDescription("The channel to send the message in")
+        .setDescription("Select the channel where the buttonrole-panel message is sended")
         .setRequired(true)
     )
     .addStringOption((option) =>
         option
             .setName("message")
-            .setDescription("The message to send")
+            .setDescription("Enter the message id of the buttonrole-panel command which you execute in that channel")
             .setRequired(true)
     )
     .addRoleOption((option) =>
         option
             .setName("role")
-            .setDescription("The role to add")
+            .setDescription("The role you want to add to button panel")
             .setRequired(true)
     )
     .addStringOption((option) =>
         option
             .setName("label")
-            .setDescription("name of the button?")
+            .setDescription("Enter the name of the button role?")
             .setRequired(true)
     )
     .addStringOption((option) =>
       option
         .setName("style")
-        .setDescription("Color of the button.")
+        .setDescription("Select the color for the button role")
         .setRequired(false)
         .addChoice("PRIMARY", "PRIMARY")
         .addChoice("SECONDARY", "SECONDARY")
@@ -43,7 +43,7 @@ module.exports = {
     .addStringOption((option) =>
       option
         .setName("emoji")
-        .setDescription("Emoji to use for the button.")
+        .setDescription("Select the emoji for the button role")
         .setRequired(false)
     ),
     /**
