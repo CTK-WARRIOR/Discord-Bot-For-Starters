@@ -28,27 +28,27 @@ module.exports = {
             }).then((response) => {
                 let embed = new MessageEmbed()
                 .setTitle("Mincecraft Server Status")
-                .setColor('YELLOW')
-                .setDescription(`\`\`\`${response.description}\`\`\``)
+                .setColor('#2f3136')
+                .setDescription(`\`\`\`${response.description.descriptionText.replace(/§[a-zA-Z0-9]/g, '')}\`\`\``)
                 .addFields(
                     {
-                        name: '<:globe:896718155416760340> Players',
-                        value: `\`\`${response.onlinePlayers}/${response.maxPlayers}\`\``,
+                        name: '<:globe:896718155416760340> Online Players',
+                        value: `${response.onlinePlayers.toLocaleString()}/${response.maxPlayers.toLocaleString()}`,
                         inline: false
                     },
                     {
                         name: '<:channel:896717996326809641> Version',
-                        value: `\`\`${response.version}\`\``,
+                        value: `${response.version}`,
                         inline: false
                     },
                     {
                         name: '<:link:896718291572240474> Server IP',
-                        value: `\`\`${response.host}\`\``,
+                        value: `${response.host}`,
                         inline: false
                     },
                     {
                         name: '<:desktop:896718080821047346> Port',
-                        value: `\`\`${response.port}\`\``,
+                        value: `${response.port}`,
                         inline: false
                     }
                 )
@@ -71,34 +71,29 @@ module.exports = {
                 port: parseInt(args[1])
             }).then((response) => {
                 let embed = new MessageEmbed()
-                .setTitle(`${response.name}`)
-                .setColor('YELLOW')
-                .setDescription(`\`\`${response.description}\`\``)
+                .setTitle("Mincecraft Server Status")
+                .setColor('#2f3136')
+                .setDescription(`\`\`\`${response.description.descriptionText.replace(/§[a-zA-Z0-9]/g, '')}\`\`\``)
                 .addFields(
                     {
-                        name: 'Players',
-                        value: `\`\`${response.players.online}/${response.players.max}\`\``,
-                        inline: true
+                        name: '<:globe:896718155416760340> Online Players',
+                        value: `${response.onlinePlayers.toLocaleString()}/${response.maxPlayers.toLocaleString()}`,
+                        inline: false
                     },
                     {
-                        name: 'Version',
-                        value: `\`\`${response.version}\`\``,
-                        inline: true
+                        name: '<:channel:896717996326809641> Version',
+                        value: `${response.version}`,
+                        inline: false
                     },
                     {
-                        name: 'MOTD',
-                        value: `\`\`${response.motd}\`\``,
-                        inline: true
+                        name: '<:link:896718291572240474> Server IP',
+                        value: `${response.host}`,
+                        inline: false
                     },
                     {
-                        name: 'IP',
-                        value: `\`\`${response.host}\`\``,
-                        inline: true
-                    },
-                    {
-                        name: 'Port',
-                        value: `\`\`${response.port}\`\``,
-                        inline: true
+                        name: '<:desktop:896718080821047346> Port',
+                        value: `${response.port}`,
+                        inline: false
                     }
                 )
                 .setTimestamp()
