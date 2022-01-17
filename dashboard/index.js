@@ -8,7 +8,6 @@ const ejs = require("ejs");
 const BotConfig = require("../settings.json");
 const WebConfig = require("./webconfig.json");
 const { Permissions } = require("discord.js");
-const { config } = require("process");
 const GuildSettings = require("../models/guildsettings");
 
 module.exports = (client) => {
@@ -24,9 +23,25 @@ module.exports = (client) => {
   passport.serializeUser((user, done) => {
     done(null, user);
   });
+
   passport.deserializeUser((obj, done) => {
     done(null, obj);
   });
+
+  let domain;
+  let callbackUrl;
+
+  try {
+      const domainURL = new URL(WebConfig.config.callback);
+      domain = {
+          host: domainURL.host,
+          protocol: domainURL.protocol,
+      }
+  } catch (error) {
+      console.log(error);
+      throw new TypeError("Invalid callback URL");
+  }
+
   passport.use(
     new Strategy(
       {
