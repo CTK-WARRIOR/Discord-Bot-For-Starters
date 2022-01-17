@@ -32,14 +32,14 @@ module.exports = (client) => {
   let callbackUrl;
 
   try {
-      const domainURL = new URL(WebConfig.config.callback);
-      domain = {
-          host: domainURL.host,
-          protocol: domainURL.protocol,
-      }
+    const domainURL = new URL(WebConfig.config.callback);
+    domain = {
+      host: domainURL.host,
+      protocol: domainURL.protocol,
+    };
   } catch (error) {
-      console.log(error);
-      throw new TypeError("Invalid callback URL");
+    console.log(error);
+    throw new TypeError("Invalid callback URL");
   }
 
   passport.use(
