@@ -1,5 +1,5 @@
 const { prefix } = require("../settings.json");
-const { Schema, model } = require("monngoose");
+const { Schema, model } = require("mongoose");
 
 const guildSettingSchema = new Schema({
   guildId: {
