@@ -26,7 +26,7 @@
     "fero-ms": "^2.0.7",
     "got": "^11.8.3",
     "memorystore": "^1.6.6",
-    "minecraft-server-util": "^3.4.2",
+    "minecraft-server-util": "^3.4.4",
     "mongoose": "^5.13.13",
     "node-fetch": "^2.6.6",
     "node-superfetch": "^0.2.3",
