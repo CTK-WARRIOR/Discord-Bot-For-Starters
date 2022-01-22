@@ -22,17 +22,6 @@ client.settings = { prefix, color, ownerId };
 for (let handler of ["slash_command", "prefix_command", "event"])
   require(`./handlers/${handler}`)(client);
 
-const { Player } = require("discord-player");
-
-const player = new Player(client, {
-  ytdlOptions: {
-    quality: "highestaudio",
-    highWaterMark: 1 << 25,
-  },
-});
-
-module.exports = player;
-
 // Export client
 module.exports = client;
 
