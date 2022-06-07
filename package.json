@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "ascii-table": "^0.0.9",
-    "discord.js": "^13.1.0"
+    "axios": "^0.26.1",
+    "discord.js": "^13.1.0",
+    "ms": "^2.1.3"
   }
 }
